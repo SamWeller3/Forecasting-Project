@@ -24,3 +24,19 @@ Now that we have the 3 best models, we then fit them to the training set for the
 ![image](https://github.com/SamWeller3/Forecasting-Project/assets/123184681/b6fc0698-68b2-4661-aaad-b713b17830f2)
 
 ## Seasonal Data
+This time series is of U.S. GPP through 1990-2022
+
+The first thing I did was to use multiplicative decomposition (due to the seasonal differences over time) to look at the trend, seasonality, and remainder of the time series. I used a lag value of 24 and for the most part, didn't find any large residuals.
+
+I then created 4 different polynomial models, as well as a smoothing spline and fourier fits. After checking the residuals on all of these models I found that the 4th degree polynomial was the best predictor.
+
+After that I moved onto exponential smoothing methods. I created a simple exponential smoothing (SES), Holt method, Holt-Winters additive method, and Holt-Winters multiplicative method. After checking the residuals, Holt-Winters multiplicative method worked the best which makes sense because the time series has clear trend and seasonality, and the magnitude of the seasonality fluctuates over time.
+
+For ARIMA models, I found that there is 1 level of normal differencing and 1 level of seasonal differencing needed. I checked the ACF and PACF plots and found that (0, 1, 1)(0, 1, 1) and (1, 1, 0)(3, 1, 0) would be the best combinations. I created variances of those and has 27 different ARIMA models. I checked the AICc values and model 9 or (0,1,0)(1,1,2) was the best ARIMA model.
+
+I then fit these four methods based on the training set and compared it to the test set. I found that the 4th degree polynomial did the best forecast because it had the lowest RMSE, MAE, MAPE, and MASE values.
+
+![image](https://github.com/SamWeller3/Forecasting-Project/assets/123184681/69fe2ab8-3552-4031-97ec-912b11baca89)
+
+![image](https://github.com/SamWeller3/Forecasting-Project/assets/123184681/c42c02de-f30b-4223-8ddf-4c24b1814e02)
+
