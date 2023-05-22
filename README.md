@@ -23,7 +23,7 @@ Now that we have the 3 best models, we then fit them to the training set for the
 
 ![image](https://github.com/SamWeller3/Forecasting-Project/assets/123184681/b6fc0698-68b2-4661-aaad-b713b17830f2)
 
-## Seasonal Data
+## Seasonal Time Series
 This time series is of U.S. GPP through 1990-2022
 
 The first thing I did was to use multiplicative decomposition (due to the seasonal differences over time) to look at the trend, seasonality, and remainder of the time series. I used a lag value of 24 and for the most part, didn't find any large residuals.
